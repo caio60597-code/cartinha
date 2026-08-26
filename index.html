@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carta para minha Joaninha 🐞❤️</title>
+<style>
+:root{
+  --cream:#f4e4cb; --ink:#4f2d30; --wine:#8d3f4e; --pink:#e99aae;
+  --gold:#ffd887; --night:#071022; --rose:#f7b3c4;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:Georgia,serif;background:#111}
+button{font:inherit;border:0;cursor:pointer;touch-action:manipulation}
+.scene{position:fixed;inset:0;display:none;overflow:hidden}
+.scene.active{display:flex;animation:fade .8s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* INTRO */
+#intro{align-items:center;justify-content:center;background:
+radial-gradient(circle at 15% 15%,#fff8ec 0 2%,transparent 24%),
+radial-gradient(circle at 85% 80%,#f5c8ce 0,transparent 25%),
+linear-gradient(135deg,#f5e6ce,#ead2b5)}
+.paper{position:relative;width:min(92vw,600px);min-height:560px;padding:38px 25px 100px;text-align:center;border-radius:28px;
+background:rgba(255,249,238,.78);box-shadow:0 25px 80px #69442d44,inset 0 0 0 1px #fff8;
+overflow:hidden}
+.paper:before,.paper:after{content:"❦";position:absolute;color:#b8736f55;font-size:75px}
+.paper:before{top:10px;left:15px}.paper:after{right:15px;bottom:5px;transform:rotate(180deg)}
+h1{margin:12px 0 25px;font-size:clamp(2.2rem,9vw,4.3rem);font-weight:500;color:#42272b}
+h1 em{display:block;color:#9b4d5b;font-weight:400}
+.lead{font-size:1.12rem;color:#65424a;line-height:1.6;margin:0 auto 20px;max-width:420px}
+.question{font-size:clamp(1.45rem,5vw,2rem);font-weight:bold;color:#874554;margin:25px 0}
+.answers{position:relative;width:100%;height:180px}
+.answer{position:absolute;padding:16px 26px;border-radius:999px;font-weight:bold;font-size:1.08rem;box-shadow:0 12px 28px #5d354033;transition:left .18s ease,top .18s ease,opacity .3s}
+#gabi{left:50%;top:5px;transform:translateX(-50%);color:#fff;background:linear-gradient(135deg,#d7778f,#8d354e)}
+#voce{left:50%;top:98px;transform:translateX(-50%);color:#603640;background:#fff5e9;border:1px solid #c99a86;opacity:.55;pointer-events:none}
+#voce.ready{opacity:1;pointer-events:auto;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:translateX(-50%) scale(1.06);box-shadow:0 0 0 12px #f5b4c633}}
+#msg{min-height:40px;color:#8d4050;font-weight:bold}
+.ladybug{position:absolute;bottom:24px;left:-80px;width:62px;height:54px;animation:walk 8s ease-in-out infinite alternate;z-index:4}
+.ladybug .body{position:absolute;width:54px;height:48px;left:5px;bottom:0;border-radius:55% 55% 50% 50%;background:
+radial-gradient(circle at 25% 35%,#211 0 7%,transparent 8%),
+radial-gradient(circle at 70% 30%,#211 0 8%,transparent 9%),
+radial-gradient(circle at 35% 75%,#211 0 7%,transparent 8%),
+radial-gradient(circle at 78% 72%,#211 0 7%,transparent 8%),
+linear-gradient(135deg,#ff5661,#a70f1c);border:3px solid #241315;box-shadow:0 7px 12px #0003}
+.ladybug .body:after{content:"";position:absolute;left:50%;top:0;width:3px;height:100%;background:#251314}
+.ladybug .head{position:absolute;width:23px;height:23px;border-radius:50%;background:#211;left:19px;top:-2px}
+@keyframes walk{0%{transform:translateX(0)}45%{transform:translateX(calc(100vw - 5px))}55%{transform:translateX(calc(100vw - 5px)) scaleX(-1)}100%{transform:translateX(0) scaleX(-1)}}
+
+/* LANTERNS */
+#lanterns{align-items:center;justify-content:center;background:
+radial-gradient(ellipse at bottom,#412348 0,transparent 40%),
+linear-gradient(#040819,#0c1634 60%,#24152d)}
+#stars,#lanternBox{position:absolute;inset:0}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff}
+.lantern{position:absolute;bottom:-90px;width:26px;height:40px;border-radius:45% 45% 32% 32%;
+background:linear-gradient(90deg,#c66d20,#fff0a4 48%,#e9952d);box-shadow:0 0 15px #ffbe55,0 0 50px #ffb13d99;animation:rise linear forwards}
+.lantern:before{content:"";position:absolute;top:-5px;left:5px;right:5px;height:6px;border-radius:50%;background:#f6bc55}
+@keyframes rise{0%{transform:translateY(0) rotate(-3deg);opacity:0}10%{opacity:1}100%{transform:translateY(-125vh) translateX(var(--drift)) rotate(5deg);opacity:0}}
+.magicText{position:relative;z-index:3;text-align:center;color:#ffe8b2;font-size:clamp(1.7rem,7vw,3.3rem);padding:25px;text-shadow:0 0 15px #ffc95c,0 0 45px #ffaf4577;animation:softOut 5s both}
+@keyframes softOut{0%,65%{opacity:1}100%{opacity:0;transform:translateY(-15px)}}
+
+/* GIFT */
+#giftScene{align-items:center;justify-content:center;flex-direction:column;background:
+radial-gradient(circle at center,#7c3b6a 0,transparent 25%),linear-gradient(#070b1c,#201129)}
+.giftText{color:#ffe6b3;font-size:clamp(1.35rem,5vw,2.2rem);text-align:center;margin-bottom:35px;text-shadow:0 0 20px #ffcc6b}
+.gift{position:relative;width:190px;height:170px;filter:drop-shadow(0 0 35px #ffbf6988);animation:float 2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.box{position:absolute;bottom:0;width:100%;height:125px;border-radius:14px;background:linear-gradient(135deg,#e27791,#8b2144);box-shadow:inset 0 0 25px #fff2}
+.lid{position:absolute;top:18px;left:-9px;width:calc(100% + 18px);height:43px;border-radius:10px;background:linear-gradient(135deg,#f48aa6,#a32950);transform-origin:left center;transition:1s}
+.ribbon{position:absolute;z-index:3;left:50%;top:0;width:24px;height:100%;transform:translateX(-50%);background:linear-gradient(90deg,#c88b31,#fff1aa,#c88b31)}
+.bow{position:absolute;z-index:5;left:50%;top:-12px;transform:translateX(-50%);font-size:72px;color:#ffe3a0;text-shadow:0 0 15px #ffd267}
+.gift.open .lid{transform:rotate(-48deg) translate(-38px,-38px)}
+.tap{color:#f7d7a4;margin-top:25px;font-size:1.2rem}
+
+/* BOUQUET */
+#bouquetScene{align-items:center;justify-content:center;flex-direction:column;text-align:center;background:
+radial-gradient(circle at center,#7d315c66,transparent 35%),linear-gradient(145deg,#090a17,#321124,#090d1b)}
+.bouquetWrap{position:relative;width:min(96vw,640px);height:min(60vh,530px);display:flex;align-items:flex-end;justify-content:center;animation:bouquetIn 1.8s cubic-bezier(.17,.67,.3,1.4) both}
+@keyframes bouquetIn{from{opacity:0;transform:scale(.2) translateY(200px)}to{opacity:1;transform:none}}
+.glow{position:absolute;width:90%;height:70%;bottom:0;border-radius:50%;background:#ff8ec455;filter:blur(35px)}
+.stems{position:absolute;bottom:10px;width:180px;height:260px;background:linear-gradient(100deg,transparent 0 15%,#2b693f 16% 18%,transparent 19% 34%,#5d914f 35% 38%,transparent 39% 58%,#27643c 59% 62%,transparent 63%);transform:rotate(-2deg)}
+.lily{position:absolute;width:160px;height:160px;animation:breathe 3s ease-in-out infinite alternate}
+@keyframes breathe{to{filter:brightness(1.13) drop-shadow(0 0 12px #ffb7d0aa)}}
+.petal{position:absolute;left:50%;top:50%;width:58px;height:104px;transform-origin:50% 100%;border-radius:70% 30% 72% 28%;
+background:radial-gradient(circle at 50% 22%,#fffdfd 0 8%,#ffdbe8 28%,#f48cac 65%,#b83c69);box-shadow:inset 6px 5px 15px #fff9,inset -8px -8px 18px #7d173844,0 0 12px #ffc2d166}
+.p1{transform:translate(-50%,-100%) rotate(0)}.p2{transform:translate(-50%,-100%) rotate(60deg)}.p3{transform:translate(-50%,-100%) rotate(120deg)}.p4{transform:translate(-50%,-100%) rotate(180deg)}.p5{transform:translate(-50%,-100%) rotate(240deg)}.p6{transform:translate(-50%,-100%) rotate(300deg)}
+.center{position:absolute;left:50%;top:50%;width:26px;height:26px;border-radius:50%;transform:translate(-50%,-50%);background:#ffd775;box-shadow:0 0 15px #ffe17d,0 0 35px #ffcd5f}
+.l1{left:calc(50% - 80px);top:0}.l2{left:8%;top:95px;transform:scale(.95) rotate(-15deg)}.l3{right:8%;top:95px;transform:scale(.95) rotate(15deg)}.l4{left:20%;bottom:20px;transform:scale(1.1) rotate(-8deg)}.l5{right:20%;bottom:20px;transform:scale(1.1) rotate(8deg)}.l6{left:calc(50% - 80px);bottom:-25px;transform:scale(.92)}
+.spark{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff;box-shadow:0 0 12px #fff,0 0 30px #ffacd1;animation:spark 1.7s infinite alternate}
+@keyframes spark{from{opacity:.15;transform:scale(.5)}to{opacity:1;transform:scale(2)}}
+.bouquetTitle{color:#ffe6ef;font-size:clamp(1.8rem,7vw,3.2rem);margin:0 15px 24px;text-shadow:0 0 18px #ff82ba,0 0 45px #ff579155}
+#continue{padding:16px 48px;border-radius:999px;color:#fff;background:linear-gradient(135deg,#f38cab,#9e3159);font-weight:bold;font-size:1.15rem;box-shadow:0 10px 30px #ff76aa55;opacity:0;animation:buttonIn 1s 4s forwards}
+@keyframes buttonIn{to{opacity:1}}
+
+#letter{align-items:center;justify-content:center;padding:20px;background:linear-gradient(145deg,#130c1c,#3a172b,#0c0d18)}
+.letterPaper{width:min(92vw,650px);max-height:90vh;overflow:auto;padding:45px 28px;border-radius:8px;background:#f5e5c9;color:#533a34;box-shadow:0 20px 70px #0008;background-image:radial-gradient(#c9986b22 1px,transparent 1px);background-size:18px 18px}
+.letterPaper h2{text-align:center;font-size:clamp(2rem,7vw,3.5rem);color:#a04d5d;font-weight:400;font-style:italic}
+.letterPaper p{font-size:1.08rem;line-height:1.75}
+.small{font-size:.9rem;opacity:.7}
+
+@media(max-width:480px){.paper{min-height:590px;padding-top:30px}.ladybug{bottom:12px}.bouquetWrap{height:50vh}.lily{transform:scale(.82)!important}.l1{transform:scale(.9)!important}.l2{left:3%}.l3{right:3%}}
+
+/* CENA DO CASTELO E RESGATE */
+#castleScene{align-items:center;justify-content:center;background:linear-gradient(#10142e,#43245a 55%,#0d1020);color:white}
+#moon{position:absolute;width:150px;height:150px;border-radius:50%;top:7%;right:10%;background:#fff0b9;box-shadow:0 0 55px #ffe8a8aa}
+.castle{position:absolute;bottom:0;width:min(78vw,430px);height:62vh;filter:drop-shadow(0 0 25px #0009)}
+.tower{position:absolute;bottom:0;width:23%;height:82%;background:linear-gradient(90deg,#4a365d,#79607d,#3a2a50);border:2px solid #241a31}
+.t1{left:4%;height:54%}.t2{left:26%;height:78%}.t3{right:26%;height:88%}.t4{right:4%;height:58%}.main{left:22%;width:56%;height:58%;background:linear-gradient(90deg,#493456,#72556d,#392644)}
+.roof{position:absolute;width:0;height:0;border-left:52px solid transparent;border-right:52px solid transparent;border-bottom:92px solid #61305d;top:-90px;left:50%;transform:translateX(-50%)}
+.window{position:absolute;width:22px;height:38px;border-radius:20px 20px 5px 5px;background:#ffd981;box-shadow:0 0 18px #ffcd69}.tower .window{left:50%;top:35%;transform:translateX(-50%)}
+.balcony{position:absolute;right:-28px;top:30%;width:60px;height:38px;border-radius:0 0 8px 8px;background:#5a405d;border:2px solid #281c36;z-index:5}
+.gabiGirl{position:absolute;right:-4px;top:-47px;width:32px;height:60px;z-index:6}.gabiGirl:before{content:"";position:absolute;width:18px;height:18px;left:7px;top:0;border-radius:50%;background:#ffd3b5;box-shadow:inset 5px 0 #d6a}.gabiGirl:after{content:"";position:absolute;width:32px;height:42px;left:0;bottom:0;border-radius:17px 17px 4px 4px;background:linear-gradient(135deg,#8f5ac8,#563276)}
+.hero{position:absolute;left:10%;bottom:7%;width:44px;height:78px;z-index:8}.hero:before{content:"";position:absolute;left:12px;top:0;width:22px;height:22px;border-radius:50%;background:#ffd0ad;box-shadow:inset 7px 0 #71492f}.hero:after{content:"";position:absolute;left:2px;bottom:0;width:40px;height:58px;background:linear-gradient(90deg,#3f5c70,#e7e3d5 45%,#40566b);clip-path:polygon(25% 0,75% 0,100% 100%,60% 100%,55% 45%,45% 45%,40% 100%,0 100%)}
+.castlePrompt{position:absolute;z-index:20;bottom:7%;left:50%;transform:translateX(-50%);width:min(92vw,500px);text-align:center;padding:20px;border-radius:24px;background:#171228cc;backdrop-filter:blur(8px);box-shadow:0 15px 45px #0007}.castlePrompt h2{margin:0 0 14px;color:#ffe3ad;font-size:clamp(1.5rem,6vw,2.4rem)}
+.choiceRow{display:flex;justify-content:center;gap:14px}.choice{padding:15px 34px;border-radius:999px;font-weight:bold;font-size:1.08rem;color:#fff;background:linear-gradient(135deg,#f08aaa,#913653);box-shadow:0 10px 28px #0004}.choice.alt{background:#fff1e8;color:#713b47;border:1px solid #c98c8e}
+#rescueScene{align-items:center;justify-content:center;background:linear-gradient(#111630,#4a2859 58%,#121521)}.rescueCastle{position:absolute;right:7%;bottom:0;width:45%;height:80%;background:linear-gradient(90deg,#4a365d,#705777,#392a50);clip-path:polygon(10% 100%,10% 22%,22% 10%,34% 22%,34% 100%,48% 100%,48% 8%,62% 0,76% 8%,76% 100%,90% 100%,90% 28%,100% 15%,100% 100%)}.ground{position:absolute;bottom:0;width:100%;height:22%;background:linear-gradient(#1d2033,#0b0d15)}
+.runner{position:absolute;bottom:18%;left:-90px;width:70px;height:95px;z-index:8;animation:rescue 8s linear forwards}.rHero{position:absolute;bottom:0;left:0;width:42px;height:75px}.rHero:before{content:"";position:absolute;left:10px;width:22px;height:22px;border-radius:50%;background:#ffd0ad;box-shadow:inset 7px 0 #6d442e}.rHero:after{content:"";position:absolute;bottom:0;width:42px;height:56px;background:linear-gradient(90deg,#3d5a6c,#f0eadb 45%,#3e596c);clip-path:polygon(25% 0,75% 0,100% 100%,60% 100%,55% 45%,45% 45%,40% 100%,0 100%)}.rGirl{position:absolute;bottom:0;left:31px;width:34px;height:68px}.rGirl:before{content:"";position:absolute;left:8px;width:18px;height:18px;border-radius:50%;background:#ffd4b6;box-shadow:inset 5px 0 #d6a}.rGirl:after{content:"";position:absolute;bottom:0;width:34px;height:48px;background:linear-gradient(135deg,#9c64cf,#563478);border-radius:16px 16px 3px 3px}
+.door{position:absolute;right:4%;bottom:18%;width:82px;height:120px;border-radius:42px 42px 5px 5px;background:radial-gradient(circle at 50% 50%,#5f42ff,#181a48 55%,#080914);border:3px solid #e8c16c;box-shadow:0 0 30px #9c72ff,0 0 70px #6c3bff88}
+@keyframes rescue{0%{left:-90px}25%{left:55%;bottom:50%;transform:scale(.85)}43%{left:55%;bottom:50%;transform:translateY(-12px) scale(.85)}52%{left:55%;bottom:18%;transform:scale(1)}100%{left:calc(100% - 135px);bottom:18%;transform:scale(.8)}}
+.rescueText{position:absolute;z-index:20;top:7%;left:50%;transform:translateX(-50%);text-align:center;color:#ffe7b0;font-size:clamp(1.2rem,5vw,2rem);text-shadow:0 0 18px #ffca70}
+#dimensionPrompt{position:absolute;z-index:25;bottom:7%;left:50%;transform:translateX(-50%);width:min(92vw,520px);text-align:center;padding:20px;border-radius:24px;background:#131022e8;display:none}#dimensionPrompt h2{margin:0 0 15px;color:#ffe4ad}
+@media(max-width:480px){.castle{width:90vw}.castlePrompt{bottom:4%}}
+
+/* CASTELO E PERSONAGENS 3D PIXELADOS — versão Caio */
+.pixelCastleScene{background:radial-gradient(circle at 75% 12%,#fff2bd 0 7%,#ffe39a44 14%,transparent 28%),linear-gradient(180deg,#0b1530 0%,#1e2446 45%,#18243a 68%,#0b1220 100%)}
+.pixelCastleScene:after{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,#ffffff06 1px,transparent 1px),linear-gradient(#ffffff05 1px,transparent 1px);background-size:6px 6px;opacity:.35;pointer-events:none}
+.pixelCastle{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(92vw,560px);height:72vh;filter:drop-shadow(0 22px 18px #0008);image-rendering:pixelated}
+.brickWall{position:absolute;bottom:0;left:13%;width:74%;height:48%;background:linear-gradient(90deg,#cfd3d6,#fff,#b8bdc2);border:5px solid #9ca1a8;box-shadow:inset 10px 0 #fff8,inset -12px 0 #8e9399,inset 0 -12px #8b9096}
+.brickWall:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 22px,#9ca1a8 23px 25px),repeating-linear-gradient(90deg,transparent 0 48px,#a9aeb4 49px 52px);opacity:.75}
+.pixelTower{position:absolute;bottom:0;width:22%;background:linear-gradient(90deg,#aeb4ba 0 10%,#f7f7f2 28% 62%,#c4c8cd 82% 100%);border:5px solid #9298a0;box-shadow:inset 9px 0 #fff9,inset -10px 0 #777d86,inset 0 -10px #7e858d}
+.pixelTower:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 20px,#a1a6ac 21px 23px),repeating-linear-gradient(90deg,transparent 0 42px,#aab0b6 43px 46px);mix-blend-mode:multiply;opacity:.65}
+.towerLeft{left:2%;height:57%}.towerCenter{left:39%;height:78%}.towerRight{right:2%;height:90%}
+.pixelRoof{position:absolute;left:50%;top:-95px;transform:translateX(-50%);width:0;height:0;border-left:62px solid transparent;border-right:62px solid transparent;border-bottom:100px solid #6f4a71;filter:drop-shadow(7px 6px 0 #3d263f)}
+.pixelRoof:after{content:"";position:absolute;left:-50px;top:55px;width:100px;height:8px;background:repeating-linear-gradient(90deg,#b987bb 0 8px,#69446d 8px 16px)}
+.pixelWindow{position:absolute;left:50%;top:30%;transform:translateX(-50%);width:32px;height:50px;border:5px solid #8d7c62;background:#ffd984;box-shadow:0 0 20px #ffd36e, inset 7px 0 #fff0b4}
+.pixelWindow:before{content:"";position:absolute;left:50%;top:0;width:5px;height:100%;background:#8d7c62}.pixelWindow:after{content:"";position:absolute;left:0;top:50%;width:100%;height:5px;background:#8d7c62}
+.pixelBalcony{position:absolute;right:-32px;top:28%;width:74px;height:55px;background:#b9bec4;border:5px solid #777d86;z-index:8;box-shadow:7px 8px 0 #666b72}
+.pixelPerson{position:absolute;width:54px;height:92px;image-rendering:pixelated;filter:drop-shadow(5px 7px 0 #0007)}
+.pixelPerson .face{position:absolute;left:15px;top:8px;width:27px;height:28px;background:#f7c8aa;border:4px solid #c98f78;z-index:3}.pixelPerson .face i{position:absolute;top:9px;width:5px;height:5px;background:#2a2130}.pixelPerson .face i:first-child{left:4px}.pixelPerson .face i:nth-child(2){right:4px}.pixelPerson .face b{position:absolute;width:10px;height:3px;background:#b85b68;left:5px;bottom:4px}.pixelPerson .hair{position:absolute;left:9px;top:1px;width:38px;height:31px;background:#7a4a2d;border:4px solid #4a2a1c;z-index:4}.pixelPerson .hair:after{content:"";position:absolute;width:12px;height:34px;background:#d7b53f;left:-12px;top:12px;box-shadow:38px 8px 0 #d7b53f}
+.pixelPerson .bodyDress{position:absolute;left:8px;top:34px;width:40px;height:52px;background:linear-gradient(90deg,#4c2b73,#8b61b9 45%,#5d368a);border:4px solid #38204f;clip-path:polygon(22% 0,78% 0,100% 100%,0 100%)}.pixelPerson .bodyVest{position:absolute;left:9px;top:35px;width:36px;height:47px;background:linear-gradient(90deg,#4a6a7d 0 22%,#f1ead8 23% 72%,#38546a 73%);border:4px solid #2d4050}.pixelPerson .arm{position:absolute;top:41px;width:10px;height:34px;background:#f3c4a4;border:3px solid #bd856f;z-index:1}.pixelPerson .a1{left:2px;transform:rotate(18deg)}.pixelPerson .a2{right:2px;transform:rotate(-18deg)}.pixelPerson .leg{position:absolute;top:78px;width:12px;height:22px;background:#4a3b3c;border:3px solid #292226}.pixelPerson .l1{left:13px}.pixelPerson .l2{right:13px}
+.rapunzel{left:7px;bottom:8px}.rapunzel .hair{background:#d7b53f;border-color:#8d6e20}.rapunzel .hair:after{background:#e8c947;box-shadow:38px 8px 0 #e8c947}.caioHero{left:10%;bottom:8%;width:60px;height:102px;z-index:12}.caioHero .hair{background:#5b3b29}.caioHero .bodyVest{height:52px}
+
+</style>
+</head>
+<body>
+
+<section id="intro" class="scene active">
+  <div class="paper">
+    <h1>Carta para <em>minha joaninha</em></h1>
+    <p class="lead">Antes de continuar essa pequena surpresa, preciso que você responda uma coisa muito importante...</p>
+    <div class="question">Quem ama mais?</div>
+    <div class="answers">
+      <button id="gabi" class="answer">♥ &nbsp; Eu (Gabi)</button>
+      <button id="voce" class="answer">Você &nbsp; ♡</button>
+    </div>
+    <div id="msg"></div>
+  </div>
+  <div class="ladybug"><div class="head"></div><div class="body"></div></div>
+</section>
+
+
+<section id="castleScene" class="scene">
+  <div id="moon"></div>
+  <div class="castle">
+    <div class="tower t1"><div class="window"></div><div class="roof"></div></div>
+    <div class="tower t2"><div class="window"></div><div class="roof"></div></div>
+    <div class="tower t3"><div class="window"></div><div class="balcony"><div class="gabiGirl"></div></div><div class="roof"></div></div>
+    <div class="tower t4"><div class="window"></div><div class="roof"></div></div>
+    <div class="tower main"></div>
+  </div>
+  <div class="hero"></div>
+  <div class="castlePrompt">
+    <h2>Você aceita fugir do castelo? 🏰💜</h2>
+    <div class="choiceRow"><button id="acceptEscape" class="choice">Sim ❤️</button><button id="noEscape" class="choice alt">Não 🙈</button></div>
+  </div>
+</section>
+
+<section id="rescueScene" class="scene">
+  <div class="rescueText">Então espera aí... eu estou indo te buscar! ❤️</div>
+  <div class="rescueCastle"></div><div class="ground"></div>
+  <div id="runner" class="runner"><div class="rHero"></div><div class="rGirl"></div></div>
+  <div class="door"></div>
+  <div id="dimensionPrompt">
+    <h2>Atravessar para outra dimensão... deseja continuar? ✨</h2>
+    <div class="choiceRow"><button id="dimensionYes" class="choice">Sim ✨</button><button id="dimensionNo" class="choice alt">Não 🙈</button></div>
+  </div>
+</section>
+
+<section id="lanterns" class="scene">
+  <div id="stars"></div><div id="lanternBox"></div>
+  <div class="magicText">Deixe a magia acontecer...<br><span style="font-size:.6em">✨ Aproveite cada segundo ✨</span></div>
+</section>
+
+<section id="giftScene" class="scene">
+  <div class="giftText">Tenho um presente especial para você,<br><i>minha princesa...</i> ✨</div>
+  <div id="gift" class="gift" aria-label="Abrir presente">
+    <div class="lid"><div class="ribbon"></div></div><div class="box"><div class="ribbon"></div></div><div class="bow">⌁</div>
+  </div>
+  <div class="tap">☝ Clique no presente para abrir</div>
+</section>
+
+<section id="bouquetScene" class="scene">
+  <div class="bouquetWrap">
+    <div class="glow"></div><div class="stems"></div>
+    <div class="lily l1"></div><div class="lily l2"></div><div class="lily l3"></div>
+    <div class="lily l4"></div><div class="lily l5"></div><div class="lily l6"></div>
+    <i class="spark" style="left:15%;top:22%"></i><i class="spark" style="left:80%;top:18%;animation-delay:.4s"></i>
+    <i class="spark" style="left:49%;top:5%;animation-delay:.8s"></i><i class="spark" style="left:8%;top:62%;animation-delay:1.1s"></i>
+    <i class="spark" style="left:90%;top:58%;animation-delay:.6s"></i>
+  </div>
+  <div class="bouquetTitle">Para você,<br><i>minha princesa.</i> 💗</div>
+  <button id="continue">Continuar ❤️</button>
+</section>
+
+<section id="letter" class="scene">
+  <article class="letterPaper">
+    <h2>Minha joaninha, 🐞❤️</h2>
+    <p>Oi, amor da minha vida,</p>
+    <p>Fiquei um tempinho fazendo isso, uma ideia que tive aqui e tive que colocar em prática 😅</p>
+    <p>Só mostrando um pouco do meu amor por você.</p>
+    <p><i>Te amo infinitamente ❤️</i></p>
+    <p class="small">— Com amor, Caio ❤️</p>
+  </article>
+</section>
+
+<script>
+const $=s=>document.querySelector(s);
+const scenes=[...document.querySelectorAll('.scene')];
+function show(id){scenes.forEach(s=>s.classList.remove('active'));$('#'+id).classList.add('active')}
+
+function rejectSound(){
+  const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
+  const c=new C(),o=c.createOscillator(),g=c.createGain();
+  o.type='square';o.frequency.setValueAtTime(190,c.currentTime);o.frequency.exponentialRampToValueAtTime(90,c.currentTime+.18);
+  g.gain.setValueAtTime(.06,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.18);
+  o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.18)
+}
+
+let tries=0, escaped=false;
+function moveCaio(e){
+  if(e)e.preventDefault();
+  if(escaped)return;
+  rejectSound();tries++;
+  const b=$('#gabi'),area=$('.answers');
+  const x=Math.max(0,Math.random()*(area.clientWidth-b.offsetWidth));
+  const y=Math.max(0,Math.random()*(area.clientHeight-b.offsetHeight));
+  b.style.left=x+'px';b.style.top=y+'px';b.style.transform='none';
+  b.animate([{transform:'rotate(0)'},{transform:'rotate(-5deg)'},{transform:'rotate(5deg)'},{transform:'rotate(0)'}],{duration:220});
+  const left=6-tries;
+  if(tries>=6){
+    escaped=true;
+    setTimeout(()=>{b.style.opacity='0';b.style.pointerEvents='none';$('#msg').textContent='Você insistiu bastante... mas a única resposta possível é essa 🤭❤️';$('#voce').classList.add('ready')},350)
+  }else $('#msg').textContent=left===1?'Última tentativa... 🤨💕':`Essa resposta foi recusada 😂❤️ (${left} tentativas restantes)`;
+}
+$('#gabi').addEventListener('click',moveCaio);
+$('#gabi').addEventListener('touchstart',moveCaio,{passive:false});
+
+$('#voce').addEventListener('click',()=>show('castleScene'));
+$('#noEscape').addEventListener('click',()=>{$('#noEscape').textContent='Tem certeza? 😏';rejectSound()});
+$('#acceptEscape').addEventListener('click',()=>{show('rescueScene');setTimeout(()=>{$('#dimensionPrompt').style.display='block'},8200)});
+$('#dimensionNo').addEventListener('click',()=>{$('#dimensionNo').textContent='A porta está esperando 😏';rejectSound()});
+$('#dimensionYes').addEventListener('click',()=>{show('lanterns');startLanterns();setTimeout(()=>show('giftScene'),5000)});
+
+function startLanterns(){
+  const stars=$('#stars'),box=$('#lanternBox');stars.innerHTML='';box.innerHTML='';
+  for(let i=0;i<70;i++){let s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';stars.appendChild(s)}
+  for(let i=0;i<52;i++){let l=document.createElement('i');l.className='lantern';l.style.left=Math.random()*100+'%';l.style.setProperty('--drift',(Math.random()*120-60)+'px');l.style.animationDuration=(3.8+Math.random()*3)+'s';l.style.animationDelay=(Math.random()*1.7)+'s';l.style.transform=`scale(${.55+Math.random()*1.1})`;box.appendChild(l)}
+}
+
+function makeLily(el){
+  for(let i=1;i<=6;i++){let p=document.createElement('i');p.className='petal p'+i;el.appendChild(p)}
+  let c=document.createElement('i');c.className='center';el.appendChild(c)
+}
+document.querySelectorAll('.lily').forEach(makeLily);
+
+$('#gift').addEventListener('click',()=>{
+  $('#gift').classList.add('open');
+  setTimeout(()=>show('bouquetScene'),1100);
+});
+$('#continue').addEventListener('click',()=>show('letter'));
+</script>
+</body>
+</html>
