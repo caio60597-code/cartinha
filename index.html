@@ -214,7 +214,7 @@ background:radial-gradient(circle at 50% 22%,#fffdfd 0 8%,#ffdbe8 28%,#f48cac 65
 
 <!-- Audio Element -->
 <audio id="bgMusic" preload="auto" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  <source src="https://rr1---sn-5hne6nsr.c.youtube.com/videoplayback?expire=1725004800&ei=QR0AZ9f9H4XcqtsP9-2e6AQ&ip=203.0.113.0&id=o-AF0bA0mM4J&itag=18&source=youtube&requiressl=yes&xoaf=5&sig=ANLwegAwRQIhAKuXrGKNJbqd8L7q6YPYLHzMHQ3M7LZVKMfVHgfKQEq4AiAYwCFNO&key=cms1" type="audio/mpeg">
 </audio>
 
 <script>
@@ -263,6 +263,7 @@ function startLanterns(){
 
 function playMusic(){
   const audio=$('#bgMusic');
+  audio.volume=0.5;
   audio.play().catch(err=>console.log('Erro ao tocar música:',err));
 }
 
